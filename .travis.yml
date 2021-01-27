@@ -8,7 +8,7 @@ arch:
   
 script:
   - ./gradlew build --scan -s
-install: travis_wait yes
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -16,3 +16,6 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+
+licenses:
+    - 'https://gradle.com/terms-of-service'
