@@ -1,21 +1,21 @@
 language: java
-jdk:
-  - openjdk11
-dist: xenial
+
+matrix:
+  include:
+    - jdk: openjdk11
+    - jdk: openjdk15 
+
 arch:
   - amd64
   - ppc64le
-  
-script:
-  - ./gradlew build --scan -s
+
+notifications:
+  email: false
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
 cache:
   directories:
-    - $HOME/.gradle/caches/
+    - $HOME/.gradle/caches/modules-2/
     - $HOME/.gradle/wrapper/
-
-licenses:
-    - 'https://gradle.com/terms-of-service'
